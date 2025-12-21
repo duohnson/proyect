@@ -416,16 +416,16 @@ button:hover:after {
 .detalle-card {
     --font-color: #323232;
     --font-color-sub: #666;
-    --bg-color: #eeb0c21a; /* Un rosa más suave para el fondo */
+    --bg-color: #eeb0c21a;
     --main-color: #e6385e65;
     
     display: flex;
-    flex-direction: row; /* Imagen a la izquierda, texto a la derecha */
+    flex-direction: row;
     max-width: 800px;
     width: 100%;
     background: var(--bg-color);
     border: 3px solid var(--main-color);
-    box-shadow: 8px 8px var(--main-color); /* Sombra sólida como tus otras cards */
+    box-shadow: 8px 8px var(--main-color);
     border-radius: 15px;
     overflow: hidden;
     gap: 30px;
@@ -452,7 +452,7 @@ button:hover:after {
 }
 
 .detalle-card-img:hover img {
-    transform: scale(1.05); /* Zoom suave al pasar el mouse */
+    transform: scale(1.05);
 }
 
 .detalle-card-content {
@@ -466,7 +466,7 @@ button:hover:after {
 .detalle-card-title {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #df33c8e0; /* Color rosa fuerte del logo */
+    color: #df33c8e0;
     margin: 0;
 }
 
@@ -508,15 +508,34 @@ button:hover:after {
     }
 }
 
-
 body {
-    background: linear-gradient(135deg, #fdfcfb 0%, #ffe8ef 100%);
+    background-color: #ff79e960; 
+    background-position: center center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
-body {
-    background-color: #fff5f7;
-    background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); 
+.container {
+    background-color: rgba(255, 255, 255, 0.253);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 75px;
+    backdrop-filter: blur(5px);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 247, 0.6);
+    z-index: -1;
 }
 
 .bg-blur {
@@ -541,7 +560,7 @@ body {
 }
 
 .bg-blur::before {
-    background: #f06292; /* El rosa de tus botones */
+    background: #f06292;
     top: -100px;
     right: -100px;
 }
@@ -551,3 +570,97 @@ body {
     bottom: -100px;
     left: -100px;
 }
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    box-shadow: 0 10px 20px rgba(230, 56, 94, 0.1), 10px 10px 0px var(--main-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    border: 1px solid rgba(230, 56, 94, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(230, 56, 94, 0.2), 5px 5px 0px var(--main-focus);
+    border-color: var(--main-focus);
+}
+
+.card-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+    transition: all 0.7s;
+}
+
+.card:hover .card-img::after {
+    left: 120%;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid #ffc1e3;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.btn-cta, .search-btn {
+    background: linear-gradient(45deg, #df33c8e0, #f06292) !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(223, 51, 200, 0.3);
+    transition: 0.3s;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(223, 51, 200, 0.5);
+}
+
+
+.search-input {
+    transition: all 0.4s ease;
+    width: 200px;
+    border: 2px solid #fce4ec;
+}
+
+.search-input:focus {
+    width: 300px;
+    border-color: #f06292;
+    box-shadow: 0 0 15px rgba(240, 98, 146, 0.2);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #323232, #df33c8e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
